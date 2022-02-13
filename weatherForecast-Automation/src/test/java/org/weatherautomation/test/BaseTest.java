@@ -5,7 +5,7 @@ import org.weatherautomation.basepage.BasePage;
 
 /**
  * BaseTest extends BasePage to use all common properties of framework
- * initialise in BasePage. BaseTest class is responsible for holding members and
+ * Initialize in BasePage. BaseTest class is responsible for holding members and
  * methods needed only by test classes. Every Test Class needs to extends the
  * BaseTest class.
  * 
@@ -15,5 +15,4 @@ import org.weatherautomation.basepage.BasePage;
 
 public class BaseTest extends BasePage {
 
-	
 }

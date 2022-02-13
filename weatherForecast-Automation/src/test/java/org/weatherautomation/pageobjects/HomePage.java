@@ -1,5 +1,6 @@
 package org.weatherautomation.pageobjects;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -18,5 +19,12 @@ public class HomePage extends BasePage {
 		// TODO Auto-generated constructor stub
 	}
 
+	public WeatherDetailPage enterCityName(String cityName) {
+		weatherSearchBox.click();
+		weatherSearchBox.sendKeys(cityName);
+		weatherSearchBox.sendKeys(Keys.ENTER);
+		return new WeatherDetailPage();
+
+	}
+
 }
- 
