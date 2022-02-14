@@ -32,3 +32,11 @@ tempDiffComparator accepts below paramters:
 Method return boolean flag as true if the tempeature difference between UI and API
 is less than tolerance range
 else throws exeption
+
+## Local Execution Steps:
+1. Import Project as Maven
+2. Navigate to project dir and open cmd
+3. run below command mvn clean test -DsuiteXmlFile=testng.xml 
+
+**Make sure maven home is set correctly and command is executed from correct dir having testng.xml
+
