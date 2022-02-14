@@ -30,7 +30,15 @@
 			<version>7.1.0</version>
 			<scope>test</scope>
 		</dependency>
-	<build>
+
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>4.5.0</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+		<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -51,11 +59,4 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<version>4.5.0</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 </project>
