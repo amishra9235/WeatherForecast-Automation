@@ -11,8 +11,7 @@ public class HomePageTest extends BaseTest {
 
 	@BeforeMethod
 	public void initTest() {
-		driver = DriverManager.getDriver();
-		driver.manage().window().maximize();
+		driver = DriverManager.getDriver(10);
 		driver.get("https://www.accuweather.com/");
 
 	}
