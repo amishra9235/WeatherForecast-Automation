@@ -13,7 +13,7 @@ import org.weatherautomation.pageobjects.HomePage;
 import org.weatherautomation.pageobjects.WeatherForecastDetailsPage;
 import org.weatherautomation.pageobjects.WeatherForecastPage;
 import org.weatherautomation.utils.ConfigLoader;
-import org.weatherautomation.utils.TemperatureConverter;
+import org.weatherautomation.utils.TemperaturComparator;
 
 import io.restassured.response.Response;
 
@@ -43,11 +43,7 @@ public class WeatherComparisonTest {
 		String temp = foreCastDetailPage.getTempInCelcius();
 		String arr[] = temp.split("°C");
 		int tempInCelciusFromUI = Integer.parseInt(arr[0]);
-		double tempFromApiInKelvin = Double.parseDouble(res.jsonPath().get("main.temp").toString());
-		int tempInCelciusFromApi = TemperatureConverter.getTempInCencius(tempFromApiInKelvin);
-		if ((tempInCelciusFromUI - tempInCelciusFromApi) < 3) {
-			flag = true;
-		}
+		flag = TemperaturComparator.tempDiffComparator(tempInCelciusFromUI, res, 3);
 		assertEquals(true, flag, "The Temperature difference is not between specified range");
 
 	}
