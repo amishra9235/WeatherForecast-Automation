@@ -9,19 +9,8 @@ public class ConfigLoader {
 	private static ConfigLoader configLoader;
 
 	private ConfigLoader() {
-		String env = System.getProperty("env", String.valueOf(EnvType.STAGE));
-		switch (EnvType.valueOf(env)) {
+		properties = PropertyUtils.propertyLoader();
 
-		case STAGE:
-			properties = PropertyUtils.propertyLoader("src/test/resources/stg_config.properties");
-			break;
-
-		case PRODUCTION:
-			properties = PropertyUtils.propertyLoader("src/test/resources/prod_config.properties");
-			break;
-		default:
-			throw new IllegalStateException("Invalid env type: " + env);
-		}
 	}
 
 	public static ConfigLoader getInstance() {
@@ -32,7 +21,7 @@ public class ConfigLoader {
 	}
 
 	public String getApiBaseUrl() {
-		String prop = properties.getProperty("apiBaseUrl");
+		String prop = properties.getProperty("ApiBaseUrl");
 		if (prop != null)
 			return prop;
 		else
@@ -40,7 +29,7 @@ public class ConfigLoader {
 	}
 
 	public String getUiUrl() {
-		String prop = properties.getProperty("uiBaseUrl");
+		String prop = properties.getProperty("UIBaseUrl");
 		if (prop != null)
 			return prop;
 		else

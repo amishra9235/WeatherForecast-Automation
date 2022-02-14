@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeSuite;
 import org.weatherautomation.utils.ConfigLoader;
 
 /**
@@ -16,8 +17,13 @@ import org.weatherautomation.utils.ConfigLoader;
  */
 
 public class BasePage {
-	protected static WebDriver driver = null;
-	protected static WebDriverWait wait = new WebDriverWait(driver,
-			Duration.ofSeconds(Integer.parseInt(ConfigLoader.getInstance().getWaitTimeInSecs())));
+
+	public BasePage(WebDriver driver) {
+		BasePage.driver = driver;
+		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+	}
+
+	public static WebDriver driver = null;
+	public static WebDriverWait wait = null;
 
 }
